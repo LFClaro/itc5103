@@ -37,6 +37,7 @@ textarea {
   background-color: #021d3a;
   color: #ffffff;
   border-radius: 5px;
+  width: 80%;
   padding: 20px;
   font-size: 120%;
   opacity: 0.7;
@@ -47,7 +48,7 @@ textarea {
 #radio1,
 #radio2,
 #radio3,
-#checkbox {
+#chkRcvMsg {
   padding: 0;
 }
 
@@ -105,9 +106,13 @@ input:valid + span::after {
     width: 100%;
     margin-top: 0;
   }
+
+  .container {
+    width: auto;
+  }
 }
 
-@media only screen and (min-width: 480px) and (max-width: 515px) {
+@media only screen and (min-width: 480px) and (max-width: 570px) {
   input[type="text"],
   input[type="email"],
   input[type="password"],

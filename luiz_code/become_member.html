@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../styles/normalize.css">
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/become_member.css">
+    <!-- CREATE JSON LOCAL STORAGE -->
+    <script src="../scripts/become_member.js"></script>
     <link rel="shortcut icon" href="../images/faviconLEAFS.ico">
     <title>The Maple Hub - Become a Member</title>
 </head>
@@ -78,10 +80,10 @@
                     <legend>Account Information</legend>
                     <div class="form_row">
                         <div class="col-25">
-                            <label for="user_name">Username:</label>
+                            <label for="name">Username:</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="user_name" name="username" required autofocus><span
+                            <input type="text" id="name" name="username" required autofocus><span
                                 class="validity"></span><br />
                         </div>
                     </div>
@@ -98,8 +100,10 @@
                             <label for="password">Password:</label>
                         </div>
                         <div class="col-75">
-                            <input type="password" placeholder="Minimum of 6 characters. Must include uppercase and a number." id="password" name="password"
-                                minlength="6" required /><span class="validity"></span><br />
+                            <input type="password"
+                                placeholder="Minimum of 6 characters. Must include uppercase and a number."
+                                id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required />
+                            <span class="validity"></span>
                         </div>
                     </div>
                     <div class="form_row">
@@ -123,11 +127,12 @@
                     </div>
                     <div class="form_row">
                         <div class="col-25">
-                            <label for="rem">Password Reminder:</label>
+                            <label for="reminder">Reminder:</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="reminder" placeholder="A keyword reminder you can use if you forget your password." name="reminder" required><span
-                                class="validity"></span><br />
+                            <input type="text" id="reminder"
+                                placeholder="A keyword reminder you can use if you forget your password."
+                                name="reminder" required><span class="validity"></span><br />
                         </div>
                     </div>
                     <div class="form_row">
@@ -150,12 +155,13 @@
                     Magazines<br />
                     <input type="radio" id="radio3" name="hear" value="other" required />Other<br /><br />
                     <label for="checkbox" id="checkbox_yes">
-                        <input type="checkbox" id="checkbox" name="yes" value="yes" />Check if you'd like to receive
+                        <input type="checkbox" id="chkRcvMsg" name="yes" value="yes" />Check if you'd like to receive
                         messages from the Fan Zone about Fantasy Hockey and our Discussion
                         Boards!
                     </label><br /><br />
                 </fieldset>
-                <input type="submit" name="submit" id="button" value="Register to the Fan Zone!" />
+                <input type="submit" id="button" value="Register to the Fan Zone!"
+                    onclick="addUser($('email').value, $('name').value, $('password').value, $('reminder').value, $('dob').value, document.querySelector('input[name=\'hear\']:checked').value, $('chkRcvMsg').checked ? 'true' : 'false')">
             </form>
         </div>
     </main>
