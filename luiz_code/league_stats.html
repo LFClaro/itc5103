@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="National Hockey League latest standings" />
+  <meta name="keywords"
+    content="nhl, league stats, standings, Toronto Maple Leafs, Leafs, Maple Leafs, hockey, hockey team, Toronto sports, Toronto" />
+  <link rel="stylesheet" href="../styles/normalize.css">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/table.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <style>
+    th {
+      cursor: pointer;
+      padding: .5rem;
+    }
+
+    tbody tr:hover {
+      color: white;
+      background-color: #021D3A;
+      opacity: 90%;
+    }
+
+    tbody a {
+      color: black;
+      text-decoration: none;
+    }
+
+    tbody tr:hover a {
+      color: white;
+    }
+
+    table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {
+      white-space: pre;
+      content: "\a \25B3\25BD";
+      font-size: smaller;
+    }
+
+    label {
+      display: inline-block;
+      width: 5em;
+    }
+  </style>
+  <link rel="shortcut icon" href="../images/faviconLEAFS.ico">
+  <!-- TABLE SORTING -->
+  <script src="../scripts/sorttable.js"></script>
+  <!-- IMAGE/MESSAGE ON HOVER (in development) -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $(function () {
+      $(document).tooltip();
+      // $("#BOB").tooltip({ content: '<img src="../images/teams/BOB.png" />' });
+      // $("#TBL").tooltip({ content: '<img src="../images/teams/TBL.png" />' });
+    })
+  </script>
+  <!-- Additional JS info -->
+  <script src="../scripts/league_stats.js"></script>
+  <title>The Maple Hub - League Standings</title>
+</head>
+
+<body>
+  <header>
+    <h1>The Maple Hub</h1>
+    <!-- NAVIGATION MENU -->
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../lucas_code/schedule.html">Schedule</a>
+      <a href="../tim_code/roster.html">Roster</a>
+      <div class="dropdown">
+        <button class="dropbtn">Stats
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="../tim_code/player_stats.html">Skater Stats</a>
+          <a href="../tim_code/goalie_stats.html">Goalie Stats</a>
+          <a href="../luiz_code/league_stats.html">League Stats</a>
+          <a href="../cezmi_code/game_stats.html">Game Stats</a>
+          <a href="../lucas_code/season_stats.html">Season Stats</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Media
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="../luiz_code/social_media.html">Social Media</a>
+          <a href="../luiz_code/video.html">Video Highlights</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">News
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="../cezmi_code/covid19.html">COVID-19 Updates</a>
+          <a href="../tim_code/new.html">General News</a>
+          <a href="../cezmi_code/injuries.html">Injuries</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Fan Zone
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="../lucas_code/login.html">Log in</a>
+          <a href="../cezmi_code/discuss_board.html">Discussion Board</a>
+          <a href="../tim_code/trades.html">Fantasy Hockey</a>
+          <a href="../luiz_code/become_member.html">Become a Member</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- MAIN CONTENT -->
+  <main>
+    <h2>League Standings</h2>
+    <div class="box">
+      <!-- TABLE MUST HAVE class="sortable" FOR SCRIPT TO WORK -->
+      <table class="sortable" id="t1">
+        <thead>
+          <tr>
+            <th title="Position Number">#</th>
+            <th title="Team">Team</th>
+            <th title="Games Played">GP</th>
+            <th title="Wins">W</th>
+            <th title="Losses">L</th>
+            <th title="Points">P</th>
+            <th title="Goals For">GF</th>
+            <th title="Goals Against">GA</th>
+            <th title="Difference">Diff</th>
+            <th title="Last Ten Games">L10</th>
+            <th title="Streak">Strk</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          <!-- TABLE INFO INCLUDED IN teams.json -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+  <footer>
+    Copyright &copy; 2020 The Maple Hub<br />
+    <a href="mailto:n01459385@humbermail.ca" target="_blank">luiz@claro.com</a>
+  </footer>
+</body>
+
+</html>
